@@ -25,7 +25,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${playfair.variable} ${great.variable} ${bodoni.variable}`}
     >
       <head>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async></script>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <script>
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+              if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                  document.location.href = "/admin/";
+                });
+              }
+            });
+          }
+        </script>
       </head>
       <body>{children}</body>
     </html>
