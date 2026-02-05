@@ -5,8 +5,7 @@ import {
   Great_Vibes,
   Cormorant_Garamond,
 } from "next/font/google";
-
-
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" });
@@ -17,9 +16,6 @@ const bodoni = Cormorant_Garamond({
   variable: "--font-bodoni",
 });
 
-
-import Script from "next/script";
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -27,13 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${playfair.variable} ${great.variable} ${bodoni.variable}`}
     >
       <head>
-        <Script
-          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-          strategy="beforeInteractive"
-        />
+        <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" strategy="beforeInteractive" />
       </head>
       <body>
-        <Script id="netlify-identity-status">
+        {children}
+        <Script id="netlify-identity-redirect">
           {`
             if (window.netlifyIdentity) {
               window.netlifyIdentity.on("init", user => {
@@ -46,7 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }
           `}
         </Script>
-        {children}
       </body>
     </html>
   );
