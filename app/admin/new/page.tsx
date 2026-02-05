@@ -55,22 +55,23 @@ export default function NewPostPage() {
                 const fileName = `${Date.now()}.${fileExt}`;
                 const filePath = `${fileName}`;
 
+                // 'blog-images' bucket'ına yüklüyoruz (izinleri ayarlı olduğu için)
                 const { error: uploadError } = await supabase.storage
-                    .from('images')
+                    .from('blog-images')
                     .upload(filePath, imageFile);
 
                 if (uploadError) {
                     const dashboardLink = getDashboardUrl();
                     if (uploadError.message.includes("Bucket not found") || uploadError.message.includes("row-level security")) {
-                        alert("HATA: 'images' adında bir depolama alanı bulunamadı. Lütfen Supabase'e gidip bu isimde bir PUBLIC bucket oluşturun.");
+                        alert("HATA: 'blog-images' klasörüne erişilemedi. Lütfen Supabase'de bu klasörün 'Public' olduğundan ve 'Policies' kısmından yükleme izni verildiğinden emin olun.");
                         window.open(dashboardLink, '_blank');
-                        throw new Error("Resim yüklenemedi. Lütfen önce 'images' bucketını oluşturun.");
+                        throw new Error("Resim yüklenemedi.");
                     }
                     throw new Error("Resim yükleme hatası: " + uploadError.message);
                 }
 
                 const { data: publicUrlData } = supabase.storage
-                    .from('images')
+                    .from('blog-images')
                     .getPublicUrl(filePath);
 
                 finalImageUrl = publicUrlData.publicUrl;
