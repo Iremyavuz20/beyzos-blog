@@ -6,7 +6,7 @@ import {
   Cormorant_Garamond,
   Allura,
 } from "next/font/google";
-import Script from "next/script";
+import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif", display: "swap" });
@@ -18,6 +18,26 @@ const bodoni = Cormorant_Garamond({
   variable: "--font-bodoni",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: "Beyzosca Renkler | Beyza Yavuz",
+    template: "%s | Beyzosca Renkler"
+  },
+  description: "Beyza Yavuz'un kişisel blogu, hayat, renkler ve düşünceler üzerine.",
+  metadataBase: new URL("https://beyzoscarenkler.com.tr"),
+  openGraph: {
+    title: "Beyzosca Renkler",
+    description: "Beyza Yavuz'un kişisel blogu.",
+    url: "https://beyzoscarenkler.com.tr",
+    siteName: "Beyzosca Renkler",
+    locale: "tr_TR",
+    type: "website",
+  },
+  icons: {
+    icon: "/file.svg", // Using existing svg as placeholder favicon if specific one isn't provided
+  }
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -15,6 +15,29 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: 'Yazı Bulunamadı',
+    };
+  }
+
+  return {
+    title: post.meta.title,
+    description: post.meta.excerpt,
+    openGraph: {
+      title: post.meta.title,
+      description: post.meta.excerpt,
+      type: 'article',
+      publishedTime: post.meta.date,
+      images: post.meta.cover ? [post.meta.cover] : [],
+    },
+  };
+}
+
 export default async function PostPage({
   params,
 }: {
