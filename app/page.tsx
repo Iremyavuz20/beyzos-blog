@@ -37,9 +37,9 @@ export default function HomePage() {
               className="hidden md:block absolute text-[11px] uppercase tracking-wide text-black/60"
               style={{
                 fontFamily: "var(--font-bodoni)",
-                fontWeight: 250,
+                fontWeight: 400,
                 letterSpacing: "0.25em",
-                bottom: "-20px",
+                bottom: "-50px",
                 left: "15px",     // Sol tarafa yanaştırıldı
                 whiteSpace: "nowrap"
               }}
