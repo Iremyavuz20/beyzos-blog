@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <Shell hideHeader minimalFooter>
       <section
-        className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: "url('/hero.jpg')" }}
       >
         {/* Overlay */}
@@ -13,33 +13,37 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center px-6">
-          <div className="relative inline-block">
-            <h1
-              className="text-[60px] md:text-[100px] leading-[0.7] tracking-normal text-black font-allura"
-              style={{
-                fontWeight: 400,
-                textShadow: `
+          <h1
+            className="text-[60px] md:text-[100px] leading-[0.7] tracking-normal text-black mt-12 mb-8 md:mb-16 font-allura"
+            style={{
+              fontWeight: 400,
+              textShadow: `
       0 2px 4px rgba(255,255,255,0.35),
       0 0 18px rgba(255,255,255,0.25)
     `,
-              }}
-            >
-              beyzoscarenkler
-            </h1>
+            }}
+          >
+            beyzoscarenkler
+          </h1>
 
-            <div
-              className="absolute text-[10px] md:text-[11px] uppercase tracking-wide text-black/60 font-bodoni"
-              style={{
-                fontWeight: 250,
-                letterSpacing: "0.25em",
-                top: "65%",
-                left: "75%",
-                transform: "translate(0, 0)",
-                whiteSpace: "nowrap"
-              }}
-            >
-              BY BEYZA YAVUZ
-            </div>
+
+          <div className="text-[11px] uppercase tracking-wide text-black/60 font-bodoni md:hidden mb-8">
+            BY BEYZA YAVUZ
+          </div>
+
+          <div
+            className="hidden md:block absolute text-[11px] uppercase tracking-wide text-black/60"
+            style={{
+              fontFamily: "var(--font-bodoni)",
+              fontWeight: 250,
+              letterSpacing: "0.25em",
+              top: "65%",
+              left: "75%",
+              transform: "translate(0, 0)",
+              whiteSpace: "nowrap"
+            }}
+          >
+            BY BEYZA YAVUZ
           </div>
           <nav className="mt-12 flex items-center justify-center text-[12px] uppercase tracking-[0.4em] font-sans">
             <Link
