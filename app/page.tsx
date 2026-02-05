@@ -14,7 +14,7 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center px-6">
           <h1
-            className="text-[60px] md:text-[100px] leading-[0.7] tracking-normal text-black mt-12 mb-8 md:mb-16 font-allura"
+            className="text-[100px] md:text-[100px] leading-[0.7] tracking-normal text-black mt-12 mb-16 font-allura"
             style={{
               fontWeight: 400,
               textShadow: `
@@ -27,13 +27,8 @@ export default function HomePage() {
           </h1>
 
 
-          {/* Key change: Mobile gets a static block, Desktop gets the absolute one */}
-          <div className="text-[11px] uppercase tracking-wide text-black/60 font-bodoni md:hidden mb-8">
-            BY BEYZA YAVUZ
-          </div>
-
           <div
-            className="hidden md:block absolute text-[11px] uppercase tracking-wide text-black/60"
+            className="absolute text-[11px] uppercase tracking-wide text-black/60"
             style={{
               fontFamily: "var(--font-bodoni)",
               fontWeight: 250,
