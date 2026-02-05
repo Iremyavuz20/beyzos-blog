@@ -5,6 +5,9 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post) => ({
