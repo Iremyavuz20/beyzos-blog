@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main # Değiştirmek gerekebilir (master/main)
+
+media_folder: "public/blog" # Görsellerin yükleneceği yer
+public_folder: "/blog" # Sitede görünecek yol
+
+collections:
+  - name: "blog"
+    label: "Blog Yazıları"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Başlık", name: "title", widget: "string" }
+      - { label: "Yayın Tarihi", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Kapak Görseli", name: "cover", widget: "image", required: false }
+      - { label: "Özet Metin", name: "excerpt", widget: "text" }
+      - { label: "İçerik", name: "body", widget: "markdown" }
