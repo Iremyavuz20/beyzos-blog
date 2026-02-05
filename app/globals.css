@@ -18,10 +18,18 @@ body {
   font-family: var(--font-sans);
 }
 
-.serif {
-  font-family: var(--font-serif);
+.font-allura {
+  font-family: var(--font-allura), cursive;
 }
 
 .font-bodoni {
-  font-family: var(--font-bodoni);
+  font-family: var(--font-bodoni), serif;
+}
+
+.font-serif {
+  font-family: var(--font-serif), serif;
+}
+
+.font-script {
+  font-family: var(--font-script), cursive;
 }

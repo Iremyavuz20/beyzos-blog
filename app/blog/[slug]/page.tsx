@@ -29,8 +29,8 @@ export default async function PostPage({
       <article className="max-w-[1400px] mx-auto px-6 py-12 md:py-20">
         {/* Blog Title at the Top */}
         <h1
-          className="text-[40px] md:text-[60px] lg:text-[80px] leading-tight text-black mb-8 md:mb-12 text-center md:text-left"
-          style={{ fontFamily: "var(--font-allura)", fontWeight: 400 }}
+          className="text-[40px] md:text-[60px] lg:text-[80px] leading-tight text-black mb-8 md:mb-12 text-center md:text-left font-allura"
+          style={{ fontWeight: 400 }}
         >
           {meta.title.toLowerCase()}
         </h1>
@@ -69,8 +69,7 @@ export default async function PostPage({
 
         {/* Content */}
         <div
-          className="prose prose-neutral max-w-2xl mx-auto prose-p:text-black/80 prose-p:leading-[1.8] prose-p:text-[18px] prose-headings:font-normal prose-headings:font-serif"
-          style={{ fontFamily: "var(--font-sans)" }}
+          className="prose prose-neutral max-w-2xl mx-auto prose-p:text-black/80 prose-p:leading-[1.8] prose-p:text-[18px] prose-headings:font-normal prose-headings:font-serif font-sans"
         >
           <MDXRemote source={content} />
         </div>

@@ -9,6 +9,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "sans-serif"],
+        serif: ["var(--font-serif)", "serif"],
+        bodoni: ["var(--font-bodoni)", "serif"],
+        allura: ["var(--font-allura)", "cursive"],
+        script: ["var(--font-script)", "cursive"],
+      },
       margin: {
         custom: "120px", // ml-custom
       },

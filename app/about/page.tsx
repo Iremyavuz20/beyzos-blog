@@ -15,8 +15,8 @@ export default function AboutPage() {
             <header className="max-w-[1300px] w-full mx-auto px-10 pt-[40px] pb-10 flex items-center justify-between">
                 <Link
                     href="/"
-                    className="relative top-5 left-5 text-[35px] md:text-[35px] leading-none text-black no-underline hover:opacity-70 transition-opacity"
-                    style={{ fontFamily: "'Allura', cursive", fontWeight: 400, color: "black" }}
+                    className="relative top-5 left-5 text-[35px] md:text-[35px] leading-none text-black no-underline hover:opacity-70 transition-opacity font-allura"
+                    style={{ fontWeight: 400, color: "black" }}
                 >
                     @beyzoscarenkler
                 </Link>
@@ -25,8 +25,8 @@ export default function AboutPage() {
                 <div className="flex items-center" style={{ gap: "40px" }}>
                     <Link
                         href="/about"
-                        className="text-[17px] md:text-[19px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity"
-                        style={{ fontFamily: "var(--font-bodoni)", fontWeight: 300, color: "black" }}
+                        className="text-[17px] md:text-[19px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity font-bodoni"
+                        style={{ fontWeight: 300, color: "black" }}
                     >
                         HAKKIMDA
                     </Link>
@@ -59,8 +59,8 @@ export default function AboutPage() {
             {/* Main Content */}
             <main className="flex-1 flex flex-col items-center justify-start px-8 md:px-32 pt-10 pb-20 text-center max-w-2xl mx-auto">
                 <h1
-                    className="text-[100px] md:text-[160px] mb-12 text-black tracking-normal leading-none"
-                    style={{ fontFamily: "'Allura', cursive", fontWeight: 400 }}
+                    className="text-[100px] md:text-[160px] mb-12 text-black tracking-normal leading-none font-allura"
+                    style={{ fontWeight: 400 }}
                 >
                     Hikayem
                 </h1>
@@ -99,7 +99,7 @@ export default function AboutPage() {
                     </div>
 
                     <div className="pt-12 pb-4">
-                        <h2 className="text-[24px] uppercase tracking-[0.3em] font-medium text-black mb-8" style={{ fontFamily: "var(--font-bodoni)" }}>
+                        <h2 className="text-[24px] uppercase tracking-[0.3em] font-medium text-black mb-8 font-bodoni">
                             Benim Yolculuğum
                         </h2>
                     </div>
@@ -137,8 +137,8 @@ export default function AboutPage() {
             <footer className="pt-[40px] pb-[30px] flex justify-center">
                 <Link
                     href="/"
-                    className="text-6xl md:text-5xl text-black no-underline hover:opacity-70 transition-opacity"
-                    style={{ fontFamily: "'Allura', cursive", color: "black" }}
+                    className="text-6xl md:text-5xl text-black no-underline hover:opacity-70 transition-opacity font-allura"
+                    style={{ color: "black" }}
                 >
                     beyzoscarenkler
                 </Link>

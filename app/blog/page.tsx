@@ -32,8 +32,8 @@ export default function BlogPage() {
             <div className="w-full md:w-1/2 flex flex-col items-start justify-center md:pl-8 md:order-2" style={{ marginTop: "-170px" }}>
               <Link href={`/blog/${post.slug}`} className="hover:opacity-70 transition-opacity" style={{ textDecoration: "none" }}>
                 <h2
-                  className="text-[36px] md:text-[48px] leading-tight text-[#1a1a1a] mb-4"
-                  style={{ fontFamily: "var(--font-allura)", fontWeight: 400, marginLeft: 850 }}
+                  className="text-[36px] md:text-[48px] leading-tight text-[#1a1a1a] mb-4 font-allura"
+                  style={{ fontWeight: 400, marginLeft: 850 }}
                 >
                   {post.title.toLowerCase()}
                 </h2>
@@ -41,8 +41,8 @@ export default function BlogPage() {
 
               <Link
                 href={`/blog/${post.slug}`}
-                className="text-[11px] uppercase tracking-[0.3em] text-black font-medium hover:opacity-50 transition-opacity"
-                style={{ fontFamily: "var(--font-sans)", color: "#000", marginLeft: "850px", marginBottom: "72px" }}
+                className="text-[11px] uppercase tracking-[0.3em] text-black font-medium hover:opacity-50 transition-opacity font-sans"
+                style={{ color: "#000", marginLeft: "850px", marginBottom: "72px" }}
               >
                 DEVAMINI OKU
               </Link>

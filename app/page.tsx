@@ -14,9 +14,8 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center px-6">
           <h1
-            className="text-[100px] md:text-[100px] leading-[0.7] tracking-normal text-black mt-12 mb-16"
+            className="text-[100px] md:text-[100px] leading-[0.7] tracking-normal text-black mt-12 mb-16 font-allura"
             style={{
-              fontFamily: "var(--font-allura)",
               fontWeight: 400,
               textShadow: `
       0 2px 4px rgba(255,255,255,0.35),
@@ -29,9 +28,8 @@ export default function HomePage() {
 
 
           <div
-            className="absolute text-[11px] uppercase tracking-wide text-black/60"
+            className="absolute text-[11px] uppercase tracking-wide text-black/60 font-bodoni"
             style={{
-              fontFamily: "var(--font-bodoni)",
               fontWeight: 250,
               letterSpacing: "0.25em",
               top: "65%",
