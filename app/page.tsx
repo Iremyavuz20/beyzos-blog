@@ -16,7 +16,7 @@ export default function HomePage() {
           <h1
             className="text-[100px] md:text-[100px] leading-[0.7] tracking-normal text-black mt-12 mb-16"
             style={{
-              fontFamily: "'Allura', cursive",
+              fontFamily: "var(--font-allura)",
               fontWeight: 400,
               textShadow: `
       0 2px 4px rgba(255,255,255,0.35),

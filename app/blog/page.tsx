@@ -33,7 +33,7 @@ export default function BlogPage() {
               <Link href={`/blog/${post.slug}`} className="hover:opacity-70 transition-opacity" style={{ textDecoration: "none" }}>
                 <h2
                   className="text-[36px] md:text-[48px] leading-tight text-[#1a1a1a] mb-4"
-                  style={{ fontFamily: "'Allura', cursive", fontWeight: 400, marginLeft: 850 }}
+                  style={{ fontFamily: "var(--font-allura)", fontWeight: 400, marginLeft: 850 }}
                 >
                   {post.title.toLowerCase()}
                 </h2>

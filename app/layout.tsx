@@ -4,12 +4,14 @@ import {
   Playfair_Display,
   Great_Vibes,
   Cormorant_Garamond,
+  Allura,
 } from "next/font/google";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" });
 const great = Great_Vibes({ weight: "400", subsets: ["latin"], variable: "--font-script" });
+const allura = Allura({ weight: "400", subsets: ["latin"], variable: "--font-allura" });
 const bodoni = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
@@ -20,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="tr"
-      className={`${inter.variable} ${playfair.variable} ${great.variable} ${bodoni.variable}`}
+      className={`${inter.variable} ${playfair.variable} ${great.variable} ${bodoni.variable} ${allura.variable}`}
     >
       <head>
         <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" strategy="beforeInteractive" />
