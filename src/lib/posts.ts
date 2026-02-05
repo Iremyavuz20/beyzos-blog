@@ -1,6 +1,7 @@
 import { supabase } from "./supabase";
 
 export type PostMeta = {
+  id: string;
   slug: string;
   title: string;
   date: string;
@@ -12,7 +13,7 @@ export type PostMeta = {
 export async function getAllPosts(): Promise<PostMeta[]> {
   const { data, error } = await supabase
     .from("posts")
-    .select("slug, title, created_at, excerpt, cover_image, published")
+    .select("id, slug, title, created_at, excerpt, cover_image, published")
     .eq("published", true)
     .order("created_at", { ascending: false });
 
@@ -22,12 +23,23 @@ export async function getAllPosts(): Promise<PostMeta[]> {
   }
 
   return data.map((post) => ({
+    id: post.id,
     slug: post.slug,
     title: post.title,
     date: post.created_at, // created_at'i date olarak kullanıyoruz
     excerpt: post.excerpt || "",
     cover: post.cover_image || undefined,
   }));
+}
+
+export async function deletePost(id: string) {
+  const { error } = await supabase
+    .from('posts')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+  return true;
 }
 
 export async function getPostBySlug(slug: string): Promise<{ meta: PostMeta; content: string } | null> {
@@ -43,6 +55,7 @@ export async function getPostBySlug(slug: string): Promise<{ meta: PostMeta; con
 
   return {
     meta: {
+      id: data.id,
       slug: data.slug,
       title: data.title,
       date: data.created_at,
