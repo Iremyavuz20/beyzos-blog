@@ -89,13 +89,11 @@ export default function AdminPage() {
         <div className="min-h-screen bg-gray-50 p-8">
             <div className="max-w-4xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold font-serif">Panel: Yazı Yönetimi</h1>
-                    <div className="flex gap-4 items-center">
-                        <a href="/admin/new" className="bg-black text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition">
-                            + Yeni Yazı Ekle
-                        </a>
-                        <a href="/" className="text-sm underline hover:text-gray-600">Siteye Dön</a>
+                    <div>
+                        <h1 className="text-3xl font-bold font-serif">Arşiv Temizliği</h1>
+                        <p className="text-sm text-gray-500 mt-1">Buradan sadece eski veritabanı yazılarını silebilirsiniz.</p>
                     </div>
+                    <a href="/admin" className="text-sm underline hover:text-gray-600">{"<"} Ana Panele Dön</a>
                 </div>
 
                 {loading ? (
