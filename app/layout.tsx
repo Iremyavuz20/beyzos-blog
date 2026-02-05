@@ -36,7 +36,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/file.svg", // Using existing svg as placeholder favicon if specific one isn't provided
-  }
+  },
+  verification: {
+    google: "KbuV9pd_tgHnr8HN3KyyDGY1NJ2pIzxi-CKdBqLi898",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
