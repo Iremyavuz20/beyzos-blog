@@ -27,25 +27,12 @@ export default function HomePage() {
               beyzoscarenkler
             </h1>
 
-            {/* Mobile Signature */}
-            <div className="text-[11px] uppercase tracking-wide text-black/60 font-bodoni md:hidden mt-2 self-start w-full text-left">
-              BY BEYZA YAVUZ
-            </div>
-
-            {/* Desktop Signature */}
-            <div
-              className="hidden md:block absolute text-[11px] uppercase tracking-wide text-black/60"
-              style={{
-                fontFamily: "var(--font-bodoni)",
-                fontWeight: 400,
-                letterSpacing: "0.25em",
-                bottom: "-50px",
-                right: "15px",     // Sol tarafa yanaştırıldı
-                whiteSpace: "nowrap"
-              }}
+            <p
+              className="mt-2 text-[11px] md:text-[11px] uppercase tracking-[0.25em] text-black/60"
+              style={{ fontFamily: "var(--font-bodoni)", fontWeight: 400 }}
             >
-              BY BEYZA YAVUZ
-            </div>
+              by Beyza Yavuz
+            </p>
           </div>
           <nav className="mt-12 flex items-center justify-center text-[12px] uppercase tracking-[0.4em] font-sans">
             <Link
