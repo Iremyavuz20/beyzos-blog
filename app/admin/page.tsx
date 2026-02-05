@@ -17,7 +17,7 @@ export default function AdminPage() {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        if (password === "beyza123") {
+        if (password === "Azyeb2401*") {
             setIsAuthenticated(true);
             fetchPosts();
         } else {
