@@ -1,109 +1,83 @@
 "use client";
 
-import { useState } from "react";
-import { supabase } from "@/lib/supabase";
-import Shell from "@/components/Shell";
+import { useState, useEffect } from "react";
+import { deletePost } from "@/lib/posts"; // This might need to be adapted for client usage or wrapped
+import { supabase } from "@/lib/supabase"; // Direct client usage
+
+type Post = {
+    id: string;
+    title: string;
+    created_at: string;
+};
 
 export default function AdminPage() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [posts, setPosts] = useState<Post[]>([]);
+    const [loading, setLoading] = useState(true);
     const [password, setPassword] = useState("");
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState("");
-
-    const [formData, setFormData] = useState({
-        title: "",
-        slug: "",
-        excerpt: "",
-        content: "",
-        date: new Date().toISOString().split('T')[0],
-    });
-    const [coverFile, setCoverFile] = useState<File | null>(null);
-
+    // Basit güvenlik (Geliştirilebilir)
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        // Basit bir şifre koruması (Gelişmiş güvenlik için Supabase Auth kullanılabilir)
-        if (password === "beyza123") { // Şifreyi buraya koydum
+        if (password === "beyza123") {
             setIsAuthenticated(true);
+            fetchPosts();
         } else {
             alert("Hatalı şifre!");
         }
     };
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setCoverFile(e.target.files[0]);
+    const fetchPosts = async () => {
+        setLoading(true);
+        const { data, error } = await supabase
+            .from("posts")
+            .select("id, title, created_at")
+            .order("created_at", { ascending: false });
+
+        if (error) {
+            console.error("Error:", error);
+            alert("Yazılar getirilemedi.");
+        } else {
+            setPosts(data || []);
         }
+        setLoading(false);
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
-        setMessage("");
+    const handleDelete = async (id: string) => {
+        if (!confirm("Bu yazıyı silmek istediğine emin misin?")) return;
 
         try {
-            let coverUrl = null;
+            const { error } = await supabase
+                .from('posts')
+                .delete()
+                .eq('id', id);
 
-            // 1. Resmi Yükle (Eğer varsa)
-            if (coverFile) {
-                const fileExt = coverFile.name.split('.').pop();
-                const fileName = `${Math.random()}.${fileExt}`;
-                const filePath = `${fileName}`;
+            if (error) throw error;
 
-                const { error: uploadError } = await supabase.storage
-                    .from("blog-images")
-                    .upload(filePath, coverFile);
-
-                if (uploadError) throw uploadError;
-
-                const { data: { publicUrl } } = supabase.storage
-                    .from("blog-images")
-                    .getPublicUrl(filePath);
-
-                coverUrl = publicUrl;
-            }
-
-            // 2. Yazıyı Veritabanına Ekle
-            const { error: insertError } = await supabase
-                .from("posts")
-                .insert([
-                    {
-                        title: formData.title,
-                        slug: formData.slug || formData.title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, ""),
-                        excerpt: formData.excerpt,
-                        content: formData.content, // Markdown içeriği string olarak saklanır
-                        created_at: new Date(formData.date).toISOString(),
-                        cover_image: coverUrl,
-                        published: true,
-                    },
-                ]);
-
-            if (insertError) throw insertError;
-
-            setMessage("✅ Yazı başarıyla yayınlandı!");
-            setFormData({ title: "", slug: "", excerpt: "", content: "", date: new Date().toISOString().split('T')[0] });
-            setCoverFile(null);
-        } catch (error: any) {
-            console.error(error);
-            setMessage(`❌ Hata: ${error.message}`);
-        } finally {
-            setLoading(false);
+            setPosts(posts.filter((p) => p.id !== id));
+            alert("Yazı silindi.");
+        } catch (err) {
+            console.error(err);
+            alert("Silinirken hata oluştu. Yetkiniz olmayabilir.");
         }
     };
 
     if (!isAuthenticated) {
         return (
-            <div className="flex h-screen items-center justify-center bg-gray-100">
-                <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow-md w-80">
-                    <h2 className="text-xl mb-4 font-bold">Yönetici Girişi</h2>
+            <div className="min-h-screen flex items-center justify-center bg-gray-50">
+                <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow-md w-full max-w-sm">
+                    <h1 className="text-2xl font-bold mb-6 text-center">Yönetici Girişi</h1>
                     <input
                         type="password"
                         placeholder="Şifre"
-                        className="w-full border p-2 mb-4 rounded"
+                        className="w-full p-2 border rounded mb-4"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button type="submit" className="w-full bg-black text-white p-2 rounded hover:bg-gray-800">
+                    <button
+                        type="submit"
+                        className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
+                    >
                         Giriş Yap
                     </button>
                 </form>
@@ -112,92 +86,54 @@ export default function AdminPage() {
     }
 
     return (
-        <Shell>
-            <div className="max-w-2xl mx-auto py-20 px-6">
-                <h1 className="text-3xl font-bold mb-8">Yeni Yazı Ekle</h1>
+        <div className="min-h-screen bg-gray-50 p-8">
+            <div className="max-w-4xl mx-auto">
+                <div className="flex justify-between items-center mb-8">
+                    <h1 className="text-3xl font-bold font-serif">Panel: Yazı Yönetimi</h1>
+                    <a href="/" className="text-sm underline hover:text-gray-600">Siteye Dön</a>
+                </div>
 
-                {message && <div className="mb-6 p-4 bg-gray-100 rounded text-center font-medium">{message}</div>}
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                        <label className="block text-sm font-bold mb-2">Başlık</label>
-                        <input
-                            type="text"
-                            required
-                            className="w-full border p-3 rounded"
-                            value={formData.title}
-                            onChange={(e) => {
-                                const title = e.target.value;
-                                const slug = title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-                                setFormData({ ...formData, title, slug })
-                            }}
-                        />
+                {loading ? (
+                    <p>Yükleniyor...</p>
+                ) : (
+                    <div className="bg-white rounded-lg shadow overflow-hidden">
+                        <table className="w-full text-left">
+                            <thead className="bg-gray-100 border-b">
+                                <tr>
+                                    <th className="p-4 font-semibold">Başlık</th>
+                                    <th className="p-4 font-semibold">Tarih</th>
+                                    <th className="p-4 font-semibold text-right">İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {posts.map((post) => (
+                                    <tr key={post.id} className="border-b hover:bg-gray-50">
+                                        <td className="p-4">{post.title}</td>
+                                        <td className="p-4 text-gray-500 text-sm">
+                                            {new Date(post.created_at).toLocaleDateString("tr-TR")}
+                                        </td>
+                                        <td className="p-4 text-right">
+                                            <button
+                                                onClick={() => handleDelete(post.id)}
+                                                className="text-red-500 hover:text-red-700 text-sm font-medium px-3 py-1 border border-red-200 rounded hover:bg-red-50 transition"
+                                            >
+                                                Sil
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                                {posts.length === 0 && (
+                                    <tr>
+                                        <td colSpan={3} className="p-8 text-center text-gray-400">
+                                            Hiç yazı bulunamadı.
+                                        </td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
                     </div>
-
-                    <div>
-                        <label className="block text-sm font-bold mb-2">Slug (URL)</label>
-                        <input
-                            type="text"
-                            required
-                            className="w-full border p-3 rounded bg-gray-50"
-                            value={formData.slug}
-                            onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-bold mb-2">Tarih</label>
-                        <input
-                            type="date"
-                            required
-                            className="w-full border p-3 rounded"
-                            value={formData.date}
-                            onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-bold mb-2">Kapak Resmi</label>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            className="w-full border p-3 rounded"
-                            onChange={handleFileChange}
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-bold mb-2">Özet (Ana sayfada görünür)</label>
-                        <textarea
-                            className="w-full border p-3 rounded h-24"
-                            value={formData.excerpt}
-                            onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-bold mb-2">İçerik (Markdown)</label>
-                        <textarea
-                            required
-                            className="w-full border p-3 rounded h-96 font-mono text-sm"
-                            value={formData.content}
-                            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                            placeholder="# Başlık&#10;&#10;Paragraf..."
-                        />
-                        <p className="text-xs text-gray-500 mt-2">
-                            Markdown formatı desteklenir. Resim eklemek için önce başka yere yükleyip linkini buraya yapıştırın veya HTML img etiketi kullanın.
-                        </p>
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="w-full bg-black text-white py-4 rounded font-bold text-lg hover:bg-gray-800 transition-colors disabled:opacity-50"
-                    >
-                        {loading ? "Yayınlanıyor..." : "Yazıyı Yayınla"}
-                    </button>
-                </form>
+                )}
             </div>
-        </Shell>
+        </div>
     );
 }
