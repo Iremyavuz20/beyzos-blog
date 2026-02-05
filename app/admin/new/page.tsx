@@ -29,6 +29,17 @@ export default function NewPostPage() {
             .replace(/\s+/g, "-");
     };
 
+    const getDashboardUrl = () => {
+        // Supabase URL'den Project ID'yi bulmaya çalış (basit parse)
+        const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+        // https://xyz.supabase.co formatında
+        const projectId = url.split('//')[1]?.split('.')[0];
+        if (projectId) {
+            return `https://supabase.com/dashboard/project/${projectId}/storage/buckets`;
+        }
+        return "https://supabase.com/dashboard";
+    }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.title || !formData.content) {
@@ -43,6 +54,20 @@ export default function NewPostPage() {
 
             // 1. Resim Yükleme (Dosya seçildiyse öncelikli)
             if (imageFile) {
+
+                // OTOMATİK BUCKET OLUŞTURMA DENEMESİ
+                // Kullanıcının yetkisi varsa bucket'ı biz oluşturayı deneriz.
+                try {
+                    const { data: buckets } = await supabase.storage.listBuckets();
+                    const imageBucket = buckets?.find(b => b.name === 'images');
+                    if (!imageBucket) {
+                        await supabase.storage.createBucket('images', { public: true });
+                    }
+                } catch (bucketChkErr) {
+                    // Hata alırsak yoksayarız, belki upload çalışır veya asıl hatayı upload'da görürüz
+                    console.log("Bucket kontrol/oluşturma yetkisi yok:", bucketChkErr);
+                }
+
                 const fileExt = imageFile.name.split('.').pop();
                 const fileName = `${Date.now()}.${fileExt}`;
                 const filePath = `${fileName}`;
@@ -53,10 +78,24 @@ export default function NewPostPage() {
                     .upload(filePath, imageFile);
 
                 if (uploadError) {
-                    // Bucket hatası ise kullanıcıyı uyar ama devam et (belki URL girmiştir)
-                    if (!finalImageUrl) {
-                        throw new Error("Resim yüklenemedi (Bucket yok). Lütfen alttaki 'Resim Linki' kutusuna bir link yapıştırın.");
+                    // Bucket hatası ise kullanıcıyı uyar
+                    let details = uploadError.message;
+                    const dashboardLink = getDashboardUrl();
+
+                    if (details.includes("Bucket not found") || details.includes("row-level security")) {
+                        const manualLink = prompt(
+                            "Resim yüklenemedi çünkü 'images' adında bir depolama alanı yok.\n\n" +
+                            "Bunu güvenlik nedeniyle kod ile oluşturamıyorum. Lütfen şu linki gidip 'images' adında 'Public' bir bucket açın:\n\n" +
+                            dashboardLink +
+                            "\n\nLink kopyalansın mı?",
+                            dashboardLink
+                        );
+                        if (manualLink) {
+                            window.open(dashboardLink, '_blank');
+                        }
+                        throw new Error("Lütfen Supabase panelinden 'images' bucketını oluşturup tekrar deneyin.");
                     }
+                    throw new Error("Resim yükleme hatası: " + details);
                 } else {
                     const { data: publicUrlData } = supabase.storage
                         .from('images')
@@ -149,7 +188,7 @@ export default function NewPostPage() {
                         <label className="block text-sm font-bold mb-2">Kapak Resmi</label>
 
                         <div className="mb-4">
-                            <p className="text-xs mb-1">Seçenek 1: Dosya Yükle (Sadece Bucket Varsa Çalışır)</p>
+                            <p className="text-xs mb-1">Seçenek 1: Dosya Yükle</p>
                             <input
                                 type="file"
                                 accept="image/*"
@@ -161,7 +200,7 @@ export default function NewPostPage() {
                         <div className="border-t border-gray-300 my-3"></div>
 
                         <div>
-                            <p className="text-xs mb-1">Seçenek 2: Veya Resim Linki Yapıştır (Önerilen)</p>
+                            <p className="text-xs mb-1">Seçenek 2: Veya Resim Linki Yapıştır</p>
                             <input
                                 type="url"
                                 placeholder="https://..."
