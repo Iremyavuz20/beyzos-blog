@@ -40,7 +40,7 @@ export default function HomePage() {
                 fontWeight: 400,
                 letterSpacing: "0.25em",
                 bottom: "-50px",
-                left: "15px",     // Sol tarafa yanaştırıldı
+                right: "15px",     // Sol tarafa yanaştırıldı
                 whiteSpace: "nowrap"
               }}
             >
