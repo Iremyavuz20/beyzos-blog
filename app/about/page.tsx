@@ -59,7 +59,7 @@ export default function AboutPage() {
             {/* Main Content */}
             <main className="flex-1 flex flex-col items-center justify-start px-8 md:px-32 pt-10 pb-20 text-center max-w-2xl mx-auto">
                 <h1
-                    className="text-[100px] md:text-[160px] mb-12 text-black tracking-normal leading-none font-allura"
+                    className="text-[60px] md:text-[160px] mb-8 md:mb-12 text-black tracking-normal leading-none font-allura"
                     style={{ fontWeight: 400 }}
                 >
                     Hikayem
