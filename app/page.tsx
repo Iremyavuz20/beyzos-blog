@@ -28,7 +28,7 @@ export default function HomePage() {
             </h1>
 
             {/* Mobile Signature */}
-            <div className="text-[11px] uppercase tracking-wide text-black/60 font-bodoni md:hidden mt-4">
+            <div className="text-[11px] uppercase tracking-wide text-black/60 font-bodoni md:hidden mt-2 self-start w-full text-left">
               BY BEYZA YAVUZ
             </div>
 
@@ -39,8 +39,8 @@ export default function HomePage() {
                 fontFamily: "var(--font-bodoni)",
                 fontWeight: 250,
                 letterSpacing: "0.25em",
-                bottom: "-25px", // Moved up to be just under the text
-                right: "0",      // Aligned to the right edge of the text
+                bottom: "-20px",
+                left: "15px",     // Sol tarafa yanaştırıldı
                 whiteSpace: "nowrap"
               }}
             >
