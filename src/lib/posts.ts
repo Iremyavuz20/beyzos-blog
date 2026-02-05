@@ -1,8 +1,16 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { supabase } from "./supabase";
 
-const postsDir = path.join(process.cwd(), "content", "posts");
+// Veritabanından gelen tip
+export type Post = {
+  id: string;
+  slug: string;
+  title: string;
+  date: string; // created_at alias or date field
+  excerpt: string | null;
+  cover: string | null; // cover_image alias
+  content: string;
+  created_at: string;
+};
 
 export type PostMeta = {
   slug: string;
@@ -12,45 +20,47 @@ export type PostMeta = {
   cover?: string;
 };
 
-export function getAllPosts(): PostMeta[] {
-  if (!fs.existsSync(postsDir)) return [];
+// Next.js Server Componentlerinde kullanacağız, async olmalı
+export async function getAllPosts(): Promise<PostMeta[]> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("slug, title, created_at, excerpt, cover_image, published")
+    .eq("published", true)
+    .order("created_at", { ascending: false });
 
-  const files = fs.readdirSync(postsDir).filter((f) => f.endsWith(".mdx"));
+  if (error) {
+    console.error("Error fetching posts:", error);
+    return [];
+  }
 
-  const posts = files.map((file) => {
-    const slug = file.replace(/\.mdx$/, "");
-    const fullPath = path.join(postsDir, file);
-    const raw = fs.readFileSync(fullPath, "utf8");
-    const { data } = matter(raw);
-
-    return {
-      slug,
-      title: String(data.title ?? ""),
-      date: String(data.date ?? ""),
-      excerpt: String(data.excerpt ?? ""),
-      cover: data.cover ? String(data.cover) : undefined,
-    };
-  });
-
-  posts.sort((a, b) => (a.date < b.date ? 1 : -1));
-  return posts;
+  return data.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    date: post.created_at, // created_at'i date olarak kullanıyoruz
+    excerpt: post.excerpt || "",
+    cover: post.cover_image || undefined,
+  }));
 }
 
-export function getPostBySlug(slug: string): { meta: PostMeta; content: string } | null {
-  const fullPath = path.join(postsDir, `${slug}.mdx`);
-  if (!fs.existsSync(fullPath)) return null;
+export async function getPostBySlug(slug: string): Promise<{ meta: PostMeta; content: string } | null> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("*")
+    .eq("slug", slug)
+    .single();
 
-  const raw = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(raw);
+  if (error || !data) {
+    return null;
+  }
 
   return {
     meta: {
-      slug,
-      title: String(data.title ?? ""),
-      date: String(data.date ?? ""),
-      excerpt: String(data.excerpt ?? ""),
-      cover: data.cover ? String(data.cover) : undefined,
+      slug: data.slug,
+      title: data.title,
+      date: data.created_at,
+      excerpt: data.excerpt || "",
+      cover: data.cover_image || undefined,
     },
-    content,
+    content: data.content,
   };
 }
