@@ -14,8 +14,8 @@ export default function Shell({
       {!hideHeader && (
         <header className="w-full bg-white">
           <div
-            className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between"
-            style={{ paddingTop: "50px", paddingBottom: "0px" , marginLeft:"60px" }}
+            className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0"
+            style={{ paddingTop: "50px", paddingBottom: "0px" }}
           >
             {/* Left: Brand */}
             <Link
@@ -27,10 +27,10 @@ export default function Shell({
             </Link>
 
             {/* Right: Nav & Socials */}
-              <div className="flex items-center" style={{ gap: "40px" }}>
-              <nav className="text-[17px] md:text-[19px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity">
-                <Link href="/about" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", marginRight: "2px", fontFamily: "var(--font-bodoni)" }}>HAKKIMDA</Link>
-                <Link href="#" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", marginLeft: "32px", fontFamily: "var(--font-bodoni)" }}>GALERİ</Link>
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+              <nav className="text-[17px] md:text-[19px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity flex items-center gap-6 md:gap-8">
+                <Link href="/about" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", fontFamily: "var(--font-bodoni)" }}>HAKKIMDA</Link>
+                <Link href="#" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", fontFamily: "var(--font-bodoni)" }}>GALERİ</Link>
               </nav>
 
               <div className="flex items-center" style={{ gap: "15px" }}>
@@ -48,7 +48,7 @@ export default function Shell({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-60 transition-opacity"
-                  style={{ color: "black", marginRight:"50px"}}
+                  style={{ color: "black" }}
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.4 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2c.4-1.69.4-5.58.4-5.58s0-3.89-.4-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
                 </a>
