@@ -14,7 +14,7 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center px-6">
           <h1
-            className="text-[60px] md:text-[100px] leading-[0.8] tracking-normal text-black mt-12 mb-8 md:mb-16 font-allura"
+            className="text-[100px] md:text-[100px] leading-[0.7] tracking-normal text-black mt-12 mb-16 font-allura"
             style={{
               fontWeight: 400,
               textShadow: `
@@ -28,16 +28,18 @@ export default function HomePage() {
 
 
           <div
-            className="text-[10px] md:text-[11px] uppercase tracking-wide text-black/60 font-bodoni mb-8 md:absolute"
+            className="absolute text-[11px] uppercase tracking-wide text-black/60"
             style={{
+              fontFamily: "var(--font-bodoni)",
               fontWeight: 250,
               letterSpacing: "0.25em",
-              // Mobile: static position (handled by class), Desktop: absolute
-              top: 'auto', // Reset for mobile if needed, but rely on media query in style or simple prop usage
+              top: "65%",
+              left: "75%",
+              transform: "translate(0, 0)",
+              whiteSpace: "nowrap"
             }}
           >
-            <span className="md:hidden">BY BEYZA YAVUZ</span>
-            <span className="hidden md:block absolute" style={{ top: "65%", left: "75%", whiteSpace: "nowrap", transform: "translate(0, 0)" }}>BY BEYZA YAVUZ</span>
+            BY BEYZA YAVUZ
           </div>
           <nav className="mt-12 flex items-center justify-center text-[12px] uppercase tracking-[0.4em] font-sans">
             <Link
