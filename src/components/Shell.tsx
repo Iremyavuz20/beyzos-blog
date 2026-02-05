@@ -14,26 +14,26 @@ export default function Shell({
       {!hideHeader && (
         <header className="w-full bg-white">
           <div
-            className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0"
+            className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between"
             style={{ paddingTop: "50px", paddingBottom: "0px" }}
           >
             {/* Left: Brand */}
             <Link
               href="/"
-              className="text-[35px] md:text-[35px] leading-none text-black no-underline hover:opacity-70 transition-opacity"
+              className="text-[24px] md:text-[35px] leading-none text-black no-underline hover:opacity-70 transition-opacity"
               style={{ fontFamily: "'Allura', cursive", fontWeight: 400, color: "black" }}
             >
               @beyzoscarenkler
             </Link>
 
             {/* Right: Nav & Socials */}
-            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-              <nav className="text-[17px] md:text-[19px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity flex items-center gap-6 md:gap-8">
+            <div className="flex items-center gap-4 md:gap-10">
+              <nav className="text-[14px] md:text-[19px] tracking-[0.1em] md:tracking-[0.2em] no-underline hover:opacity-60 transition-opacity flex items-center gap-3 md:gap-8">
                 <Link href="/about" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", fontFamily: "var(--font-bodoni)" }}>HAKKIMDA</Link>
                 <Link href="#" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", fontFamily: "var(--font-bodoni)" }}>GALERİ</Link>
               </nav>
 
-              <div className="flex items-center" style={{ gap: "15px" }}>
+              <div className="hidden md:flex items-center" style={{ gap: "15px" }}>
                 <a
                   href="https://www.instagram.com/beyzoscarenkler/"
                   target="_blank"
