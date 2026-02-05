@@ -90,7 +90,12 @@ export default function AdminPage() {
             <div className="max-w-4xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-3xl font-bold font-serif">Panel: Yazı Yönetimi</h1>
-                    <a href="/" className="text-sm underline hover:text-gray-600">Siteye Dön</a>
+                    <div className="flex gap-4 items-center">
+                        <a href="/admin/new" className="bg-black text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition">
+                            + Yeni Yazı Ekle
+                        </a>
+                        <a href="/" className="text-sm underline hover:text-gray-600">Siteye Dön</a>
+                    </div>
                 </div>
 
                 {loading ? (
