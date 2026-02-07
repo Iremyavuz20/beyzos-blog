@@ -54,7 +54,7 @@ export default async function PostPage({
     <Shell>
       <article className="max-w-[1000px] mx-auto px-6 py-12 md:py-24 flex flex-col items-center">
         {/* Blog Title at the Top */}
-        <header className="w-full text-center mb-16 md:mb-24">
+        <header className="w-full text-center mb-6 md:mb-10">
           <h1
             className="text-[40px] md:text-[72px] leading-tight text-black font-allura"
             style={{ fontWeight: 400 }}
@@ -64,7 +64,7 @@ export default async function PostPage({
         </header>
 
         {/* Large Image Below Title - Widened and Shortened */}
-        <div className="w-full max-w-[1240px] mb-8 overflow-hidden rounded-sm shadow-sm">
+        <div className="w-full max-w-[1240px] mb-4 overflow-hidden rounded-sm shadow-sm">
           {meta.cover ? (
             <img
               src={meta.cover}
@@ -79,7 +79,7 @@ export default async function PostPage({
         </div>
 
         {/* Date Below Image */}
-        <div className="w-full text-center mb-16 md:mb-24">
+        <div className="w-full text-center mb-10 md:mb-16">
           <p className="text-[12px] uppercase tracking-[0.4em] text-black/40 font-medium">
             {new Date(meta.date).toLocaleDateString("tr-TR", {
               year: 'numeric',
