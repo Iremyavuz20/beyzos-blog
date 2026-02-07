@@ -4,12 +4,17 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <Shell hideHeader minimalFooter>
-      <section
-        className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: "url('/hero.jpg')" }}
-      >
+      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/hero.jpg"
+            alt="Hero"
+            className="h-full w-full object-cover object-center md:object-cover"
+          />
+        </div>
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/15 z-1" />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center px-6">
