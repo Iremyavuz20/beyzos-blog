@@ -91,7 +91,7 @@ export default async function PostPage({
 
         {/* Content */}
         <div
-          className="prose prose-neutral max-w-2xl mx-auto prose-p:text-black/80 prose-p:leading-[1.8] prose-p:text-[18px] prose-headings:font-normal prose-headings:font-serif font-sans"
+          className="prose prose-neutral w-full max-w-2xl px-6 mx-auto prose-p:text-black/80 prose-p:leading-[1.8] prose-p:text-[18px] prose-headings:font-normal prose-headings:font-serif font-sans whitespace-pre-line"
         >
           <MDXRemote source={content} />
         </div>
