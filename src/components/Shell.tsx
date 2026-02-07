@@ -16,31 +16,30 @@ export default function Shell({
           {/* DESKTOP HEADER (Hidden on Mobile) */}
           <div
             className="hidden md:flex max-w-[1400px] mx-auto px-10 items-center justify-between"
-            style={{ paddingTop: "50px", paddingBottom: "0px", marginLeft: "60px" }}
+            style={{ paddingTop: "80px", paddingBottom: "20px" }}
           >
             {/* Left: Brand */}
             <Link
               href="/"
-              className="text-[35px] leading-none text-black no-underline hover:opacity-70 transition-opacity"
-              style={{ fontFamily: "'Allura', cursive", fontWeight: 400, color: "black" }}
+              className="text-[35px] leading-none text-black no-underline hover:opacity-70 transition-opacity font-allura"
+              style={{ fontWeight: 400 }}
             >
               @beyzoscarenkler
             </Link>
 
             {/* Right: Nav & Socials */}
-            <div className="flex items-center" style={{ gap: "40px" }}>
-              <nav className="text-[19px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity">
-                <Link href="/about" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", marginRight: "2px", fontFamily: "var(--font-bodoni)" }}>HAKKIMDA</Link>
-                <Link href="#" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", marginLeft: "32px", fontFamily: "var(--font-bodoni)" }}>GALERİ</Link>
+            <div className="flex items-center gap-10">
+              <nav className="text-[19px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity flex items-center gap-8">
+                <Link href="/about" className="hover:text-black transition-colors font-bodoni text-black no-underline">HAKKIMDA</Link>
+                <Link href="#" className="hover:text-black transition-colors font-bodoni text-black no-underline">GALERİ</Link>
               </nav>
 
-              <div className="flex items-center" style={{ gap: "15px" }}>
+              <div className="flex items-center gap-4">
                 <a
                   href="https://www.instagram.com/beyzoscarenkler/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-60 transition-opacity"
-                  style={{ color: "black" }}
+                  className="hover:opacity-60 transition-opacity text-black"
                 >
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </a>
@@ -48,8 +47,7 @@ export default function Shell({
                   href="https://www.youtube.com/@beyzoscarenkler"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-60 transition-opacity"
-                  style={{ color: "black", marginRight: "50px" }}
+                  className="hover:opacity-60 transition-opacity text-black"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.4 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2c.4-1.69.4-5.58.4-5.58s0-3.89-.4-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
                 </a>
@@ -60,19 +58,19 @@ export default function Shell({
           {/* MOBILE HEADER (Hidden on Desktop) */}
           <div
             className="flex md:hidden w-full px-6 items-center justify-between"
-            style={{ paddingTop: "30px", paddingBottom: "10px" }}
+            style={{ paddingTop: "45px", paddingBottom: "20px" }}
           >
             <Link
               href="/"
-              className="text-[24px] leading-none text-black no-underline hover:opacity-70 transition-opacity"
-              style={{ fontFamily: "'Allura', cursive", fontWeight: 400, color: "black" }}
+              className="text-[24px] leading-none text-black no-underline hover:opacity-70 transition-opacity font-allura"
+              style={{ fontWeight: 400 }}
             >
               @beyzoscarenkler
             </Link>
 
-            <nav className="flex items-center gap-4 text-[12px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity">
-              <Link href="/about" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", fontFamily: "var(--font-bodoni)" }}>HAKKIMDA</Link>
-              <Link href="#" className="hover:text-black transition-colors" style={{ color: "#000", textDecoration: "none", fontFamily: "var(--font-bodoni)" }}>GALERİ</Link>
+            <nav className="flex items-center gap-4 text-[12px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity font-bodoni">
+              <Link href="/about" className="hover:text-black transition-colors text-black no-underline">HAKKIMDA</Link>
+              <Link href="#" className="hover:text-black transition-colors text-black no-underline">GALERİ</Link>
             </nav>
           </div>
         </header>
