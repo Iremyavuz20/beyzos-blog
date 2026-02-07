@@ -52,46 +52,41 @@ export default async function PostPage({
 
   return (
     <Shell>
-      <article className="max-w-[1400px] mx-auto px-6 py-12 md:py-20">
+      <article className="max-w-[1000px] mx-auto px-6 py-12 md:py-24 flex flex-col items-center">
         {/* Blog Title at the Top */}
+        <header className="w-full text-center mb-16 md:mb-24">
+          <h1
+            className="text-[60px] md:text-[120px] leading-tight text-black font-allura"
+            style={{ fontWeight: 400 }}
+          >
+            {meta.title.toLowerCase()}
+          </h1>
+        </header>
 
-
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch mb-12 md:mb-20">
-          {/* Left: Cover Image */}
-          <div className="w-full md:flex-1 overflow-hidden flex justify-center">
-            {meta.cover ? (
-              <img
-                src={meta.cover}
-                alt={meta.title}
-                className="object-cover rounded-lg shadow-lg w-full h-[300px] md:h-[400px]"
-              />
-            ) : (
-              <div className="w-full h-[300px] md:h-[400px] bg-gray-100 rounded-lg" />
-            )}
-          </div>
-
-          {/* Right: Header Info */}
-          <header className="w-full md:flex-1 flex flex-col justify-between items-start text-left py-2">
-            <div className="flex flex-col gap-6">
-              <h1
-                className="text-[36px] md:text-[42px] lg:text-[50px] leading-tight text-black font-allura"
-                style={{ fontWeight: 400 }}
-              >
-                {meta.title.toLowerCase()}
-              </h1>
-              <p className="text-[11px] uppercase tracking-[0.35em] text-black/40">
-                {new Date(meta.date).toLocaleDateString("tr-TR", {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </p>
+        {/* Large Image Below Title - Widened and Shortened */}
+        <div className="w-full max-w-[1240px] mb-8 overflow-hidden rounded-sm shadow-sm">
+          {meta.cover ? (
+            <img
+              src={meta.cover}
+              alt={meta.title}
+              className="w-full h-auto object-cover md:max-h-[500px] object-center"
+            />
+          ) : (
+            <div className="w-full h-[300px] bg-gray-50 flex items-center justify-center text-gray-300">
+              Görsel Yok
             </div>
+          )}
+        </div>
 
-            <p className="text-[16px] md:text-[18px] text-black/60 italic leading-relaxed">
-              {meta.excerpt}
-            </p>
-          </header>
+        {/* Date Below Image */}
+        <div className="w-full text-center mb-16 md:mb-24">
+          <p className="text-[12px] uppercase tracking-[0.4em] text-black/40 font-medium">
+            {new Date(meta.date).toLocaleDateString("tr-TR", {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </p>
         </div>
 
         {/* Content */}
