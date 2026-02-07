@@ -31,10 +31,10 @@ export default async function BlogPage() {
             </Link>
 
             {/* Right: Content */}
-            <div className="w-full md:w-[50%] flex flex-col items-center md:items-start px-8 md:pl-24 md:pr-12 mt-12 md:mt-[320px]">
+            <div className="w-full md:w-[50%] flex flex-col items-center md:items-start px-8 md:pl-12 md:pr-12 mt-12 md:mt-[320px]">
               <Link href={`/blog/${post.slug}`} className="hover:opacity-70 transition-opacity text-center md:text-left" style={{ textDecoration: "none" }}>
                 <h2
-                  className="text-[40px] md:text-[52px] leading-tight text-[#1a1a1a] mb-6 font-allura md:whitespace-nowrap"
+                  className="text-[40px] md:text-[48px] leading-tight text-[#1a1a1a] mb-6 font-allura"
                   style={{ fontWeight: 400 }}
                 >
                   {post.title.toLowerCase()}
