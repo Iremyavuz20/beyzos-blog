@@ -56,7 +56,7 @@ export default async function PostPage({
         {/* Blog Title at the Top */}
         <header className="w-full text-center mb-16 md:mb-24">
           <h1
-            className="text-[60px] md:text-[120px] leading-tight text-black font-allura"
+            className="text-[40px] md:text-[72px] leading-tight text-black font-allura"
             style={{ fontWeight: 400 }}
           >
             {meta.title.toLowerCase()}
