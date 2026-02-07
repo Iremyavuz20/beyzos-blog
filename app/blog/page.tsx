@@ -9,11 +9,11 @@ export default async function BlogPage() {
 
   return (
     <Shell>
-      <div className="w-full py-24 space-y-32 pb-40">
+      <div className="w-full pt-12 pb-24 space-y-32">
         {posts.map((post) => (
-          <section key={post.slug} className="flex flex-col md:flex-row gap-12 md:gap-24 items-center justify-center max-w-[1400px] mx-auto px-6 md:px-12">
-            {/* Left: Image */}
-            <Link href={`/blog/${post.slug}`} className="w-full md:w-[60%] group">
+          <section key={post.slug} className="flex flex-col md:flex-row items-start w-full">
+            {/* Left: Image - Touching the edge */}
+            <Link href={`/blog/${post.slug}`} className="w-full md:w-[50%] group">
               {post.cover ? (
                 <div className="aspect-[3/2] w-full overflow-hidden cursor-pointer relative shadow-sm">
                   <img
@@ -31,10 +31,10 @@ export default async function BlogPage() {
             </Link>
 
             {/* Right: Content */}
-            <div className="w-full md:w-[35%] flex flex-col items-center md:items-start md:pl-20 mt-8 md:mt-[600px]">
+            <div className="w-full md:w-[50%] flex flex-col items-center md:items-start px-8 md:pl-24 md:pr-12 mt-12 md:mt-[320px]">
               <Link href={`/blog/${post.slug}`} className="hover:opacity-70 transition-opacity text-center md:text-left" style={{ textDecoration: "none" }}>
                 <h2
-                  className="text-[40px] md:text-[56px] leading-tight text-[#1a1a1a] mb-6 font-allura"
+                  className="text-[40px] md:text-[52px] leading-tight text-[#1a1a1a] mb-6 font-allura md:whitespace-nowrap"
                   style={{ fontWeight: 400 }}
                 >
                   {post.title.toLowerCase()}
