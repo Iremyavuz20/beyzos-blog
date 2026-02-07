@@ -29,11 +29,7 @@ export default function HomePage() {
 
 
             <p
-              className="-mt-4 md:-mt-1 ml-92 text-[12px] md:text-[12px] uppercase tracking-[0.25em] text-black/60"
-              style={{
-                fontFamily: "var(--font-bodoni)",
-                fontWeight: 600
-              }}
+              className="-mt-2 md:-mt-1 text-right text-[10px] md:text-[12px] uppercase tracking-[0.25em] text-black/60 font-bodoni font-semibold"
             >
               by Beyza Yavuz
             </p>
