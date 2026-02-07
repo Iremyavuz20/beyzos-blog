@@ -54,12 +54,7 @@ export default async function PostPage({
     <Shell>
       <article className="max-w-[1400px] mx-auto px-6 py-12 md:py-20">
         {/* Blog Title at the Top */}
-        <h1
-          className="text-[40px] md:text-[60px] lg:text-[80px] leading-tight text-black mb-8 md:mb-12 text-center md:text-left font-allura"
-          style={{ fontWeight: 400 }}
-        >
-          {meta.title.toLowerCase()}
-        </h1>
+
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch mb-12 md:mb-20">
           {/* Left: Cover Image */}
@@ -77,8 +72,14 @@ export default async function PostPage({
 
           {/* Right: Header Info */}
           <header className="w-full md:flex-1 flex flex-col justify-between items-start text-left py-2">
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.35em] text-black/40 mb-4">
+            <div className="flex flex-col gap-6">
+              <h1
+                className="text-[36px] md:text-[42px] lg:text-[50px] leading-tight text-black font-allura"
+                style={{ fontWeight: 400 }}
+              >
+                {meta.title.toLowerCase()}
+              </h1>
+              <p className="text-[11px] uppercase tracking-[0.35em] text-black/40">
                 {new Date(meta.date).toLocaleDateString("tr-TR", {
                   year: 'numeric',
                   month: 'long',

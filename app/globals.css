@@ -1,6 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-bodoni: var(--font-bodoni), serif;
+  --font-allura: var(--font-allura), cursive;
+  --font-signature: var(--font-signature), cursive;
+  --font-satisfy: var(--font-satisfy), cursive;
+  --font-script: var(--font-script), cursive;
+
+  --margin-custom: 120px;
+}
 
 :root {
   --bg: 255 255 252;
@@ -18,8 +28,18 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Custom font utility classes for backward compatibility if needed, 
+   though Tailwind 4 will generate .font-allura from the theme */
 .font-allura {
   font-family: var(--font-allura), cursive;
+}
+
+.font-signature {
+  font-family: var(--font-signature), cursive;
+}
+
+.font-satisfy {
+  font-family: var(--font-satisfy), cursive;
 }
 
 .font-bodoni {

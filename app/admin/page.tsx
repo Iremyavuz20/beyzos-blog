@@ -116,12 +116,20 @@ export default function AdminPage() {
                                             {new Date(post.created_at).toLocaleDateString("tr-TR")}
                                         </td>
                                         <td className="p-4 text-right">
-                                            <button
-                                                onClick={() => handleDelete(post.id)}
-                                                className="text-red-500 hover:text-red-700 text-sm font-medium px-3 py-1 border border-red-200 rounded hover:bg-red-50 transition"
-                                            >
-                                                Sil
-                                            </button>
+                                            <div className="flex justify-end gap-3">
+                                                <a
+                                                    href={`/admin/edit/${post.id}`}
+                                                    className="bg-blue-500 text-white hover:bg-blue-600 px-3 py-1 rounded text-sm transition-colors"
+                                                >
+                                                    Düzenle
+                                                </a>
+                                                <button
+                                                    onClick={() => handleDelete(post.id)}
+                                                    className="bg-red-50 text-red-600 hover:bg-red-100 px-3 py-1 rounded border border-red-200 text-sm transition-colors"
+                                                >
+                                                    Sil
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}

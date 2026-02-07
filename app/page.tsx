@@ -13,7 +13,7 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center px-6">
-          <div className="relative inline-block mb-8 md:mb-16 mt-12">
+          <div className="relative inline-block mb-4 md:mb-8 mt-12">
             <h1
               className="text-[60px] md:text-[100px] leading-[0.7] tracking-normal text-black font-allura"
               style={{
@@ -27,14 +27,18 @@ export default function HomePage() {
               beyzoscarenkler
             </h1>
 
+
             <p
-              className="mt-2 text-[11px] md:text-[11px] uppercase tracking-[0.25em] text-black/60"
-              style={{ fontFamily: "var(--font-bodoni)", fontWeight: 400 }}
+              className="-mt-4 md:-mt-1 ml-92 text-[12px] md:text-[12px] uppercase tracking-[0.25em] text-black/60"
+              style={{
+                fontFamily: "var(--font-bodoni)",
+                fontWeight: 600
+              }}
             >
               by Beyza Yavuz
             </p>
           </div>
-          <nav className="mt-12 flex items-center justify-center text-[12px] uppercase tracking-[0.4em] font-sans">
+          <nav className="mt-4 md:mt-6 flex items-center justify-center text-[12px] uppercase tracking-[0.4em] font-sans">
             <Link
               href="/about"
               className="hover:opacity-50 transition-opacity"

@@ -7,7 +7,7 @@ export default function AboutPage() {
             <div className="w-full bg-[#f0f0f0] h-[1px]"></div>
             <div className="w-full bg-[#f0f0f0] h-[46px] flex items-center justify-center">
                 <div className="flex items-center">
-                    <span className="font-sans text-[13px] text-[#2c3338] font-normal tracking-tight">"En uzun yol insanın kendine olan yolculuğudur."</span>
+                    <span className="font-sans text-[13px] text-[#2c3338] font-normal tracking-tight">"En uzun yol insanın kendine olan yolculuğudur"</span>
                 </div>
             </div>
 
@@ -57,7 +57,7 @@ export default function AboutPage() {
             </header>
 
             {/* Main Content */}
-            <main className="flex-1 flex flex-col items-center justify-start px-8 md:px-32 pt-10 pb-20 text-center max-w-2xl mx-auto">
+            <main className="flex-1 flex flex-col items-center justify-start px-8 md:px-32 pt-10 pb-20 text-center max-w-10xl mx-auto">
                 <h1
                     className="text-[60px] md:text-[160px] mb-8 md:mb-12 text-black tracking-normal leading-none font-allura"
                     style={{ fontWeight: 400 }}
@@ -65,14 +65,14 @@ export default function AboutPage() {
                     Hikayem
                 </h1>
 
-                <div className="serif text-[18px] md:text-[20px] leading-[1.8] text-black/90 max-w-lg space-y-10">
-                    <div className="space-y-6">
+                <div className="serif text-[18px] md:text-[18px] leading-[1.8] text-black/90 w-full space-y-1">
+                    <div className="space-y-1">
                         <p>
                             Bazı yolculuklar dışarıya değil, içeriye yapılır.
                             Burası, kelimelerle yürüdüğüm bir yol. Yazmak benim için bir varış noktası değil, bir yolculuk.
                         </p>
 
-                        <div className="mx-auto max-w-[1000px] px-6 md:px-1 space-y-30 text-center">
+                        <div className="mx-auto w-full px-6 md:px-1 space-y-1 text-center">
                             <p>
                                 Çünkü biliyorum ki nereye gittiğini bilmeyene hiçbir rüzgâr yardım etmez.
                                 Hayatın gürültüsünden çok, içimdeki sesi dinlemeyi seçiyorum. Kalabalık cümlelerden ziyade, sade olanı seviyorum. Bazen bir düşünce, bazen bir his, bazen sadece bir durup bakma hâli… Burada paylaştıklarım; gördüklerimden çok, içimde olanlar.
@@ -104,7 +104,7 @@ export default function AboutPage() {
                         </h2>
                     </div>
 
-                    <div className="mx-auto max-w-[1000px] px-6 md:px-1 space-y-30 text-center">
+                    <div className="mx-auto w-full px-6 md:px-1 space-y-1 text-center">
                         <p>
                             Bu yol, önce babamın üretim sanayisinde seramikle toprakla başladı. Sonra bir okulda, sonra bir bilgisayarda, sonra bir atölyede…
                         </p>

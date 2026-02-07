@@ -5,6 +5,8 @@ import {
   Great_Vibes,
   Cormorant_Garamond,
   Allura,
+  Alex_Brush,
+  Satisfy,
 } from "next/font/google";
 import type { Metadata } from "next";
 
@@ -12,6 +14,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swa
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif", display: "swap" });
 const great = Great_Vibes({ weight: "400", subsets: ["latin"], variable: "--font-script", display: "swap" });
 const allura = Allura({ weight: "400", subsets: ["latin"], variable: "--font-allura", display: "swap" });
+const signature = Alex_Brush({ weight: "400", subsets: ["latin"], variable: "--font-signature", display: "swap" });
+const satisfy = Satisfy({ weight: "400", subsets: ["latin"], variable: "--font-satisfy", display: "swap" });
 const bodoni = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
@@ -46,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="tr"
-      className={`${inter.variable} ${playfair.variable} ${great.variable} ${bodoni.variable} ${allura.variable}`}
+      className={`${inter.variable} ${playfair.variable} ${great.variable} ${bodoni.variable} ${allura.variable} ${signature.variable} ${satisfy.variable}`}
     >
       <head>
 
