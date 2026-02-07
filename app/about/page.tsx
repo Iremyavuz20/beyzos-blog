@@ -12,24 +12,24 @@ export default function AboutPage() {
             </div>
 
             {/* Header Bar */}
-            <header className="max-w-[1300px] w-full mx-auto px-6 md:px-10 py-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
+            <header className="max-w-[1300px] w-full mx-auto px-4 md:px-10 py-8 md:py-10 flex flex-row items-center justify-between gap-2 md:gap-0">
                 <Link
                     href="/"
-                    className="text-[32px] md:text-[35px] leading-none text-black no-underline hover:opacity-70 transition-opacity font-allura"
+                    className="text-[24px] md:text-[35px] leading-none text-black no-underline hover:opacity-70 transition-opacity font-allura whitespace-nowrap"
                     style={{ fontWeight: 400 }}
                 >
                     @beyzoscarenkler
                 </Link>
 
 
-                <div className="flex flex-col md:flex-row items-center gap-6 md:gap-[40px]">
+                <div className="flex flex-row items-center gap-4 md:gap-[40px]">
                     <Link
                         href="/about"
-                        className="text-[17px] md:text-[19px] tracking-[0.2em] no-underline hover:opacity-60 transition-opacity font-bodoni font-light"
+                        className="text-[13px] md:text-[19px] tracking-[0.15em] md:tracking-[0.2em] no-underline hover:opacity-60 transition-opacity font-bodoni font-light whitespace-nowrap"
                     >
                         HAKKIMDA
                     </Link>
-                    <div className="flex items-center gap-[20px]">
+                    <div className="flex items-center gap-3 md:gap-[20px]">
 
                         {/* Instagram - Outline */}
                         <a
@@ -38,7 +38,7 @@ export default function AboutPage() {
                             rel="noopener noreferrer"
                             className="hover:opacity-60 transition-opacity text-black"
                         >
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <svg width="18" height="18" className="md:w-[22px] md:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                         {/* YouTube icon */}
                         <a
@@ -47,7 +47,7 @@ export default function AboutPage() {
                             rel="noopener noreferrer"
                             className="hover:opacity-60 transition-opacity text-black"
                         >
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.4 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2c.4-1.69.4-5.58.4-5.58s0-3.89-.4-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
+                            <svg width="20" height="20" className="md:w-[24px] md:h-[24px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.4 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2c.4-1.69.4-5.58.4-5.58s0-3.89-.4-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
                         </a>
                     </div>
                 </div>
