@@ -79,11 +79,11 @@ export default function Shell({
       <main className="w-full">{children}</main>
 
       <footer
-        className={`${minimalFooter ? 'w-full' : 'max-w-[1400px] mx-auto'} px-10 ${minimalFooter ? 'py-10' : 'py-20'}`}
+        className={`${minimalFooter ? 'w-full' : 'max-w-[1400px] mx-auto'} px-6 md:px-10 ${minimalFooter ? 'py-10' : 'py-16 md:py-20'}`}
         style={{ marginTop: '50px' }}
       >
-        <div className="flex flex-col items-center gap-6">
-          <p className="text-[11px] uppercase tracking-[0.3em] text-black/40">
+        <div className="flex flex-col items-center justify-center text-center">
+          <p className="text-[9px] sm:text-[11px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-black/40 leading-relaxed">
             © {new Date().getFullYear()}, Beyzoscarenkler • All rıghts reserved.
           </p>
         </div>
