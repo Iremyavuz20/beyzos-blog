@@ -5,17 +5,17 @@ export default function HomePage() {
   return (
     <Shell hideHeader minimalFooter>
       <section
-        className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: "url('/hero.jpg')" }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/20" />
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-full">
-          <div className="relative inline-block mb-4 md:mb-8 mt-12 max-w-full">
+        <div className="relative z-10 flex flex-col items-center text-center px-6">
+          <div className="relative inline-block mb-4 md:mb-8 mt-12">
             <h1
-              className="text-[48px] sm:text-[60px] md:text-[100px] leading-[0.8] tracking-normal text-black font-allura"
+              className="text-[60px] md:text-[100px] leading-[0.7] tracking-normal text-black font-allura"
               style={{
                 fontWeight: 400,
                 textShadow: `
