@@ -103,7 +103,7 @@ export default function AboutPage() {
 
                     <div className="mx-auto w-full px-6 md:px-1 space-y-1 text-center">
                         <p>
-                            Bu yol, önce babamın üretim sanayisinde seramikle toprakla başladı. Sonra bir okulda, sonra bir bilgisayarda, sonra bir atölyede…
+                            Bu yol, önce çocukluğumda babamın üretim sanayisinde seramikle toprakla başladı. Sonra bir okulda, sonra bir bilgisayarda, sonra bir atölyede…
                         </p>
                         <p>
                             Güzel Sanatlar Lisesi’nde Grafik Tasarım ile başlayan eğitim yolculuğum akabinde üniversitede de Güzel Sanatlar Fakültesi Grafik Tasarım bölümünden mezun olmamla devam etti. Ardından 2. üniversitede yine lisans Halkla İlişkiler ve Reklamcılık okudum. Şu anda yüksek lisans eğitimime de devam ediyorum.
