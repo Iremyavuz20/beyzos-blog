@@ -84,7 +84,7 @@ export default function Shell({
       >
         <div className="flex flex-col items-center justify-center text-center">
           <p className="text-[9px] sm:text-[11px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-black/40 leading-relaxed">
-            © {new Date().getFullYear()}, Beyzoscarenkler • All rıghts reserved.
+            © {new Date().getFullYear()} Beyzoscarenkler • Developed by Irem Yavuz •  All rıghts reserved
           </p>
         </div>
       </footer>
