@@ -29,6 +29,12 @@ export default function AboutPage() {
                     >
                         HAKKIMDA
                     </Link>
+                    <Link
+                        href="/blog"
+                        className="text-[13px] md:text-[19px] tracking-[0.15em] md:tracking-[0.2em] no-underline hover:opacity-60 transition-opacity font-bodoni font-light whitespace-nowrap"
+                    >
+                        BLOG
+                    </Link>
                     <div className="flex items-center gap-3 md:gap-[20px]">
 
                         {/* Instagram - Outline */}
@@ -115,7 +121,7 @@ export default function AboutPage() {
                             2020 yılında ise ikinci yolculuğum başladı. Baba mesleğini, köklerimi ve el emeğini geleceğe taşımak için 2. şirketim Aliento Atelier’i kurdum. Bu yolculuk aynı zamanda kadın istihdamını destekleyen bir üretim alanına dönüştü.
                         </p>
                         <p>
-                            2022’de Patara’ya yerleştim. Ajans işlerimi uzaktan yürütürken, Aliento Atelier’ın ilk fiziksel mağazasını burada açtım. Zamanla bu mekân sadece bir dükkân değil, bir deneyim alanına dönüştü. Kendi kahve çekirdeklerimi yurt dışından getirip kavurarak, kendi markamın adıyla satışa sundum. Misafirlerime kendi seramiklerimde, kendi kahvemle, ruhlarına işleyen kendi üretimim oda kokumla bir masa kurdum. Sonra atölyemi büyüttüm. Workshop alanı ekledim. İnsanların sadece alışveriş yaptığı değil, üreterek vakit geçirdiği bir yer olsun istedim.
+                            2022’de deniz havası almaya geldiğim Patara’ya aynı gün taşınmaya karar verip yerleştim. Ajans işlerimi uzaktan yürütürken, Aliento Atelier’ın ilk fiziksel mağazasını burada açtım. Zamanla bu mekân sadece bir dükkân değil, bir deneyim alanına dönüştü. Kendi kahve çekirdeklerimi yurt dışından getirip kavurarak, kendi markamın adıyla satışa sundum. Misafirlerime kendi seramiklerimde, kendi kahvemle, ruhlarına işleyen kendi üretimim oda kokumla bir masa kurdum. Sonra atölyemi büyüttüm. Workshop alanı ekledim. İnsanların sadece alışveriş yaptığı değil, üreterek vakit geçirdiği bir yer olsun istedim.
                         </p>
                         <p>
                             Bugün yaptığım şey; tasarımı, üretimi, kahveyi ve hikâyeyi aynı masada buluşturmak.
