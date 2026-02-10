@@ -38,9 +38,6 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
   },
-  icons: {
-    icon: "/favicon.png",
-  },
   verification: {
     google: "KbuV9pd_tgHnr8HN3KyyDGY1NJ2pIzxi-CKdBqLi898",
   },
