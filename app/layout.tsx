@@ -1,5 +1,4 @@
 import "./globals.css";
-import Script from "next/script";
 import {
   Inter,
   Playfair_Display,
@@ -55,19 +54,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${playfair.variable} ${great.variable} ${bodoni.variable} ${allura.variable} ${signature.variable} ${satisfy.variable}`}
     >
       <head>
-
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JVGLKRKRP"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2JVGLKRKRP');
+            `
+          }}
+        />
       </head>
       <body>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-2JVGLRKRRP" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-2JVGLRKRRP');
-          `}
-        </Script>
         {children}
 
       </body>
