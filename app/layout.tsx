@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 import {
   Inter,
   Playfair_Display,
@@ -57,6 +58,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       </head>
       <body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-2JVGLRKRRP" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-2JVGLRKRRP');
+          `}
+        </Script>
         {children}
 
       </body>
